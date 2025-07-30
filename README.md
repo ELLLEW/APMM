@@ -61,7 +61,7 @@ project_root
 ### Console Output
 
 Item 1: Success Probability = 72.4%
-Suggestion: Reduce the target time.
+<br>Suggestion: Reduce the target time.
 
 ### Graph Output
 
