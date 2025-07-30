@@ -6,7 +6,7 @@ This MATLAB project predicts the success probability of personal plans and offer
 
 ## Key Features
 
-- Train models from historical plan data (`plan_*.csv`)
+- Train models from historical plan data (`plan.zip`, containing multiple `plan_*.csv` files)
 - Predict success rates for new plans (`new_plan.csv`)
 - Provide improvement suggestions using averages and similar case patterns
 - Display prediction results with formatted text and a donut chart
@@ -15,14 +15,15 @@ This MATLAB project predicts the success probability of personal plans and offer
 ## Project Structure
 
 project_root
-- plan_*.csv             # Training plan data (multiple files allowed)
-- new_plan.csv           # New plan data for prediction
-- APMM.m        # Main executable MATLAB script
-- README.md              # This documentation file
+- APMM.m             # Main executable MATLAB script
+- README.md          # This documentation file
+- new_plan.csv       # New plan data for prediction
+- plan.zip           # Training plan data (contains plan_1.csv, plan_2.csv, etc.)
+
 
 ## Input Data Format
 
-### Training Data (`plan_*.csv`)
+### Training Data (`plan_*.csv` inside plan.zip)
 
 | Category | SubCategory | Priority | TargetTime | ActualTime | TaskSuccess | PlanSuccess |
 |----------|-------------|----------|------------|------------|-------------|-------------|
@@ -45,17 +46,20 @@ project_root
 
 ## How to Run
 
-1. Place training CSV files as `plan_*.csv` in the `trainFolder`.
-2. Prepare a `new_plan.csv` file with new plan data.
-3. Run the MATLAB script:
+1. Extract `plan.zip` into a folder (e.g., `trainFolder`) so that you have multiple `plan_*.csv` files.
+2. Place `new_plan.csv` (or a csv file what you want to test) in the same or a known location.
+3. Open MATLAB, navigate to the project folder, and run:
 
-   matlab run("planPredictor.m");
+   matlab
+   run('APMM.m')
 
 
-4. View output in the command window and generated visualizations.
+4. View results in the Command Window and graphical output window.
 
 ## Output Example
+
 ### Console Output
+
 Item 1: Success Probability = 72.4%
 Suggestion: Reduce the target time.
 
@@ -65,14 +69,17 @@ Suggestion: Reduce the target time.
 - Donut chart representing overall success probability
 
 ## Model Evaluation
-- Binary Classification Accuracy
-- LSTM Regression MSE
-- Threshold: Success if probability > 0.5
+
+- Binary Classification Accuracy (for Decision Tree)
+- Regression Mean Squared Error (for LSTM)
+- Success threshold: probability > 0.5
 
 ## Future Improvements
-- Add more features (e.g., day of week, time slot)
-- Weighted scoring by plan category
+
+- Add more contextual features (e.g., day of week, time slot)
+- Weighted scoring based on plan category
 - Interactive user feedback integration (GUI)
 
 ## Developer Notes
+
 This system was designed to enhance personal productivity through predictive modeling and tailored feedback. The hybrid model balances structured logic and sequential pattern learning for improved decision support.
