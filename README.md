@@ -14,11 +14,11 @@ This MATLAB project predicts the success probability of personal plans and offer
 
 ## Project Structure
 
-project_root/
- plan_*.csv             # Training plan data (multiple files allowed)
- new_plan.csv           # New plan data for prediction
- planPredictor.m        # Main executable MATLAB script
- README.md              # This documentation file
+project_root
+- plan_*.csv             # Training plan data (multiple files allowed)
+- new_plan.csv           # New plan data for prediction
+- APMM.m        # Main executable MATLAB script
+- README.md              # This documentation file
 
 ## Input Data Format
 
